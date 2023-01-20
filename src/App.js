@@ -1,8 +1,14 @@
+import GlobalStyle from './global'
+import { Container, Content } from './styles'
+
 function App() {
   return (
-    <div>
-      Never Stop Trying
-    </div>
+    <Container>
+      <Container>
+        Never Stop Trying
+      </Container>
+      <GlobalStyle />
+    </Container>
   ) 
 }
 
