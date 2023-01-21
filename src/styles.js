@@ -13,5 +13,5 @@ export const Content = styled.div`
   margin: 30px;
   background: #FFF;
   border-radius: 4px;
-  padding: 20px;
+  padding: 1rem;
 `
