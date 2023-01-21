@@ -1,12 +1,14 @@
+import Student from './components/Students'
 import GlobalStyle from './global'
 import { Container, Content } from './styles'
 
 function App() {
   return (
     <Container>
-      <Container>
-        Never Stop Trying
-      </Container>
+      <Content>
+        Never Stop Trying 
+      </Content>
+      <Student />
       <GlobalStyle />
     </Container>
   ) 
