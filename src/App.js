@@ -1,9 +1,9 @@
 import GlobalStyle from './global'
 
-import Student from './components/Students'
+// import Student from './components/Students'
 import Call from './pages/Call'
 
-import { Container, Content } from './styles'
+import { Container } from './styles'
 
 function App() {
   return (
