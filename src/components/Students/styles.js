@@ -7,15 +7,20 @@ export const StudentContainer = styled.div`
 
   width: 100%; 
   background: #4e4c57; 
-  border-radius: 5px;
-  padding: 1rem;
-  margin: 1rem 0;
+  border-radius: 10px;
+  padding: .5rem;
+  margin: .5rem 0;
  
   transition: height 0.2s ease; 
 `
 export const StudentAvatar = styled.div`
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	
 	background-color: #FFF; 
-	padding: 1rem;
+	width: 4rem;
+	height: 4rem;
 	margin: 0 auto;
 	border-radius: 50%;
 ` 
@@ -27,23 +32,23 @@ export const StudentPresence = styled.div`
 	justify-content: space-between;
 	margin-bottom: .5rem;
 `
-export const StudentPresent = styled.div`
+export const StudentPresent = styled.button`
 	color: green;
-	font-size: 1rem;
-	font-weight: bold;
+	font-size: .8rem;
+	font-weight: bold; 
 
 	cursor: pointer;
 `
-export const StudentAbsent = styled.div`
+export const StudentAbsent = styled.button`
 	color: red;
-	font-size: 1rem;
+	font-size: .8rem;
 	font-weight: bold;
 
 	cursor: pointer;
 `
 export const StudentName = styled.div` 
 	color: #FFF;
-	font-size: 2rem;
+	font-size: 1rem;
 	font-weight: bold;
 	text-align: center; 
 `
