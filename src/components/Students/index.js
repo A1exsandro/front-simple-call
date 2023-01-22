@@ -15,14 +15,14 @@ function Student() {
       <StudentAvatar>AV</StudentAvatar>
       <StudentDescription>
         <StudentPresence>
-          <StudentPresent>Present</StudentPresent>
-          <StudentAbsent>Absent</StudentAbsent>
+          <StudentPresent>Presenças: 64</StudentPresent>
+          <StudentAbsent>Faltas: 01</StudentAbsent>
         </StudentPresence>
         <StudentName>Student</StudentName> 
       </StudentDescription>
-      <StudentStar>@@@@@</StudentStar>
+      <StudentStar>*****</StudentStar>
     </StudentContainer>
   )
 }
 
-export default Student;
+export default Student 

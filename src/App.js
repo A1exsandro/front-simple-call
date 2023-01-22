@@ -8,10 +8,10 @@ import { Container, Content } from './styles'
 function App() {
   return (
     <Container>
-      <Content>
+      {/* <Content>
         Never Stop Trying 
       </Content>
-      <Student />
+      <Student /> */}
       <Call />
       <GlobalStyle />
     </Container>

@@ -13,6 +13,8 @@ function Call() {
 			<CallTitle>Call</CallTitle>
 			<CallDate>01/01/23</CallDate>
 			<Student />
+			<Student />
+			<Student />
 			<CallSubmit>Enviar</CallSubmit>
 		</CallContainer>
 	)
