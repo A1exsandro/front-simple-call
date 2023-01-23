@@ -5,6 +5,10 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     outline: 0;
+    border: 0; 
+    appearance: none; 
+    text-decoration: none;
+    list-style: none;
     box-sizing: border-box;
   }
 
