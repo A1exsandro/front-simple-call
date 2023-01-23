@@ -15,17 +15,17 @@ const baseURL = 'http://localhost:3000/students'
 
 function Student() { 
   const [students, setStudents] = useState([])
-
+  
   useEffect(() => {
     axios.get(baseURL).then((response) => {
       setStudents(response.data)
     })
-  },[students])
+  },[ ])
 
   return ( 
     students.map((student, index) => (
       <StudentContainer key={index}>
-        <StudentAvatar>{index}</StudentAvatar>
+        <StudentAvatar>{index + 1}</StudentAvatar>
         <StudentDescription>
           <StudentPresence>
             <StudentPresent onClick={() => (alert('o Aluno está Presente'))}>Presenças: {student.present}</StudentPresent>

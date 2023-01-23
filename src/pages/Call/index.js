@@ -4,18 +4,20 @@ import {
 	CallContainer,
 	CallTitle,
 	CallDate,
-	CallSubmit
+	CallSubmit,
+	CallResume
 } from './styles'
 
 function Call() {
 	return (
 		<CallContainer>
-			<CallTitle>Call</CallTitle>
-			<CallDate>01/01/23</CallDate>
-			<Student />
-			<Student />
-			<Student />
-			<CallSubmit>Enviar</CallSubmit>
+			<CallTitle>Call</CallTitle> 
+			<CallDate type="date"></CallDate>
+			<Student />  
+			<CallResume>
+				Total de Alunos: 45 - Total de Faltas: 5
+			</CallResume>
+			<CallSubmit onClick={() => (alert('Chamada Realizada com Sucesso!!!'))}>Enviar</CallSubmit>
 		</CallContainer>
 	)
 }

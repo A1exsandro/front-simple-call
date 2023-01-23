@@ -1,6 +1,16 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
+import {  
+  CallsContainer,
+  CallsTitle,
+  CallDaily,
+  CallDate,
+  CallStudents,
+  CallName,
+  CallPresent
+} from './styles'
+
 const baseURL = 'http://localhost:3000/calls'
 
 function Calls() { 
@@ -11,37 +21,27 @@ function Calls() {
       setcalls(response.data)
     })
   },[])
-
-  
-
+ 
   return(
-    
-    <div>Calls 
-      <table>
-        <thead>
-          <tr> 
-            <th>Chamadas</th>  
-          </tr> 
-        </thead>
+    <CallsContainer>
+      <CallsTitle>Calls</CallsTitle>
         {
           calls.map((call, index) => ( 
-            <tbody key={index}>
-              <tr>
-                <td>{ call.date }</td>
-              </tr> 
-                {
+            <CallDaily key={index}>
+              <CallDate>{ call.date }</CallDate>
+              {
                   call.students.map((student, index) => (
-                    <tr key={index}>
-                      <td >{student.name}</td>
-                      <td >{student.present.toString()}</td>
-                    </tr>
-                  ))
-                } 
-            </tbody>  
+                  <CallStudents key={index}> 
+                    <CallName>{student.name}</CallName>
+                    <CallPresent>{student.present.toString()}</CallPresent>
+                  </CallStudents>
+                ))
+              } 
+            </CallDaily>
           ))
         }  
-      </table>
-    </div>
+    </CallsContainer>
+     
   )
 }
 
