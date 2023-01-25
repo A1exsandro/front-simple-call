@@ -11,17 +11,23 @@ import {
   StudentName
 } from './styles'
 
-const baseURL = 'http://localhost:3000/students'
+const baseURL = 'http://localhost:3000'
 
-function Student() { 
+function Student( {childToParent} ) { 
   const [students, setStudents] = useState([])
-  
+   
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    axios.get(`${baseURL}/students`).then((response) => {
       setStudents(response.data)
     })
   },[ ])
 
+  function setAbsent(student){ 
+    student.present = false 
+    childToParent(students)
+    console.log(student) 
+  }
+ 
   return ( 
     students.map((student, index) => (
       <StudentContainer key={index}>
@@ -29,12 +35,12 @@ function Student() {
         <StudentDescription>
           <StudentPresence>
             <StudentPresent onClick={() => (alert('o Aluno está Presente'))}>Presenças: {student.present}</StudentPresent>
-            <StudentAbsent onClick={() => (alert('o Aluno Faltou'))}>Faltas: {student.present}</StudentAbsent>
+            <StudentAbsent onClick={() => setAbsent(student)}>Faltas: {student.present.toString()}</StudentAbsent>
           </StudentPresence>
           <StudentName>{student.name}</StudentName> 
         </StudentDescription>
-        <StudentStar>*****</StudentStar>
-      </StudentContainer>
+        <StudentStar>*****</StudentStar> 
+      </StudentContainer> 
     )) 
   )
 }
