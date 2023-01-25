@@ -14,7 +14,7 @@ import {
 const baseURL = 'http://localhost:3000'
 
 function Student( {childToParent} ) { 
-  const [students, setStudents] = useState([])
+  const [students, setStudents] = useState([ ])
    
   useEffect(() => {
     axios.get(`${baseURL}/students`).then((response) => {
@@ -22,11 +22,22 @@ function Student( {childToParent} ) {
     })
   },[ ])
 
-  function setAbsent(student){ 
-    student.present = false 
+  function setPresent(student){ 
+    student.present = true 
+    student.presences += 1 
     childToParent(students)
     console.log(student) 
+    console.log(students)
   }
+
+  function setAbsent(student){ 
+    student.present = false 
+    student.absences += 1
+    childToParent(students)
+    console.log(student) 
+    console.log(students)
+  }
+  
  
   return ( 
     students.map((student, index) => (
@@ -34,8 +45,8 @@ function Student( {childToParent} ) {
         <StudentAvatar>{index + 1}</StudentAvatar>
         <StudentDescription>
           <StudentPresence>
-            <StudentPresent onClick={() => (alert('o Aluno está Presente'))}>Presenças: {student.present}</StudentPresent>
-            <StudentAbsent onClick={() => setAbsent(student)}>Faltas: {student.present.toString()}</StudentAbsent>
+            <StudentPresent onClick={() => setPresent(student)}>Presenças: {student.presences}</StudentPresent>
+            <StudentAbsent onClick={() => setAbsent(student)}>Faltas: {student.absences}</StudentAbsent>
           </StudentPresence>
           <StudentName>{student.name}</StudentName> 
         </StudentDescription>
