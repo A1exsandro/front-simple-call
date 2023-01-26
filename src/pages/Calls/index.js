@@ -20,7 +20,7 @@ function Calls() {
     axios.get(baseURL).then((response) => {
       setCalls(response.data)
     })
-  },[])
+  },[]) 
  
   return(
     <CallsContainer>
@@ -28,7 +28,7 @@ function Calls() {
       {
         calls.map((call, index) => ( 
           <CallDaily key={index}>
-            <CallDate>{ call.date }</CallDate>
+            <CallDate>{ new Date(call.date).toDateString() }</CallDate>
             {
                 call.students.map((student, index) => (
                 <CallStudents key={index}> 
