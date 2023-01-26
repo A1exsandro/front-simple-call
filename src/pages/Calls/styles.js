@@ -1,7 +1,7 @@
 import styled from "styled-components" 
 
 export const CallsContainer = styled.div`
-
+  /* background-color: #202528; */
 `
 export const CallsTitle = styled.div`
 

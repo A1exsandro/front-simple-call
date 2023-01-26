@@ -18,7 +18,7 @@ export const StudentAvatar = styled.div`
 	justify-content: center;
 	align-items: center;
 	
-	background-color: #FFF; 
+	background-color: #dce1eb; 
 	width: 4rem;
 	height: 4rem;
 	margin: 0 auto;
@@ -33,8 +33,8 @@ export const StudentPresence = styled.div`
 	margin-bottom: .5rem;
 `
 export const StudentPresent = styled.button`
-	color: green;
-	font-size: .9rem;
+	color: #41f1b6;
+	font-size: .8rem;
 	font-weight: bold;
 	/* border: 1px solid #FFF;  */
 	background: none;
@@ -42,8 +42,8 @@ export const StudentPresent = styled.button`
 	cursor: pointer;
 `
 export const StudentAbsent = styled.button`
-	color: red;
-	font-size: .9rem;
+	color: #ff7782;
+	font-size: .8rem;
 	font-weight: bold;
 	/* border: 1px solid #FFF; */
 	background: none;
@@ -51,7 +51,7 @@ export const StudentAbsent = styled.button`
 	cursor: pointer;
 `
 export const StudentName = styled.div` 
-	color: #FFF;
+	color: #dce1eb;
 	font-size: 1rem;
 	font-weight: bold;
 	text-align: center; 

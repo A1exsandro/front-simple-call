@@ -1,10 +1,12 @@
-import { Content } from './styles'
+import { HomeContainer, Content } from './styles'
 
 function Home(){
 	return(
-		<Content>
-			Never Stop Trying 
-		</Content>
+    <HomeContainer>
+      <Content>
+        Never Stop Trying 
+      </Content>
+    </HomeContainer>
 	)
 }
 

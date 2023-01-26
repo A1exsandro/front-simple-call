@@ -1,9 +1,9 @@
 import styled from 'styled-components'
 
 export const CallContainer = styled.div`
-	width: 22rem;
+	width: 100%;
 	height: 100%;
-	padding: 2rem 0; 
+	padding: 1rem 0; 
 `
 export const CallTitle = styled.div`
 	color: #FFF;

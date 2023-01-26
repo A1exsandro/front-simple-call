@@ -12,7 +12,7 @@ import Student from './components/Students'
  
 function App() {
   return (
-    <Container>
+    <Container> 
       <BrowserRouter>
         <NavBar />
         <Routes>
