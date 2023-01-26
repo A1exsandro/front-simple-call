@@ -14,6 +14,8 @@ const baseURL = 'http://localhost:3000'
 
 function Call() {
   const [data, setData] = useState([])
+  const dateCall = new Date( )
+  console.log(dateCall)
 
   const childToParent = (childdata) => {
     setData(childdata);
@@ -21,7 +23,7 @@ function Call() {
 
 	function createCall() {
 		axios.post(`${baseURL}/calls`, { 
-      date:  '2023-01-01',
+      date:  dateCall.toISOString(),
 		  students: data 
 		}) 
   }
@@ -29,15 +31,15 @@ function Call() {
 	return (
 		<CallContainer>
 			<CallTitle>Call</CallTitle> 
-			<CallDate type="date"></CallDate>
+      <CallTitle>{ dateCall.toDateString() }</CallTitle>
+			{/* <CallDate type="date"></CallDate> */}
 
 			<Student childToParent={childToParent}/> 
 
 			<CallResume>
 				Total de Alunos: 45 - Total de Faltas: 5
 			</CallResume>
-			<CallSubmit onClick={() => (alert('Chamada Realizada com Sucesso!!!'))}>Enviar</CallSubmit>
-			<button onClick={createCall}>Criar</button>
+			<CallSubmit onClick={createCall}>Enviar</CallSubmit> 
 		</CallContainer>
 	)
 }
