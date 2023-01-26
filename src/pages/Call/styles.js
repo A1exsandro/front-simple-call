@@ -21,7 +21,7 @@ export const CallDate = styled.input`
   border-style: none;
 `
 export const CallSubmit = styled.button`
-  /* width: 50%; */ 
+  width: 100%; 
   color: #FFF;
   font-size: 1.5rem;
   font-weight: bold;
@@ -29,6 +29,7 @@ export const CallSubmit = styled.button`
   border-radius: 10px; 
   padding: 0.5rem;
   text-align: center; 
+  background: none;
 
   cursor: pointer;
 `

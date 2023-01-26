@@ -34,15 +34,19 @@ export const StudentPresence = styled.div`
 `
 export const StudentPresent = styled.button`
 	color: green;
-	font-size: .8rem;
-	font-weight: bold; 
+	font-size: .9rem;
+	font-weight: bold;
+	/* border: 1px solid #FFF;  */
+	background: none;
 
 	cursor: pointer;
 `
 export const StudentAbsent = styled.button`
 	color: red;
-	font-size: .8rem;
+	font-size: .9rem;
 	font-weight: bold;
+	/* border: 1px solid #FFF; */
+	background: none;
 
 	cursor: pointer;
 `
