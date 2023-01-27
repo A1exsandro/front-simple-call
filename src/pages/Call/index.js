@@ -4,8 +4,7 @@ import Student from '../../components/Students'
 
 import { 
 	CallContainer,
-	CallTitle,
-	CallDate,
+	CallTitle, 
 	CallSubmit,
 	CallResume
 } from './styles'
@@ -31,8 +30,7 @@ function Call() {
 	return (
 		<CallContainer>
 			<CallTitle>Call</CallTitle> 
-      <CallTitle>{ dateCall.toDateString() }</CallTitle>
-			{/* <CallDate type="date"></CallDate> */}
+      <CallTitle>{ dateCall.toDateString() }</CallTitle> 
 
 			<Student childToParent={childToParent}/> 
 
