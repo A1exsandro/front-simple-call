@@ -10,14 +10,12 @@ import {
   StudentAbsent,
   StudentName
 } from './styles'
-
-const baseURL = 'http://localhost:3000'
-
+ 
 function Student( {childToParent} ) { 
   const [students, setStudents] = useState([ ])
    
   useEffect(() => {
-    axios.get(`${baseURL}/students`).then((response) => {
+    axios.get(`${BASE_URL}/students`).then((response) => {
       setStudents(response.data)
     })
   },[ ])
@@ -25,7 +23,7 @@ function Student( {childToParent} ) {
   function setPresent(student){ 
     student.present = true 
 
-    axios.patch(`${baseURL}/students`, { 
+    axios.patch(`${BASE_URL}/students`, { 
 		  student 
 		})
 
@@ -37,10 +35,10 @@ function Student( {childToParent} ) {
   function setAbsent(student){ 
     student.present = false 
 
-    axios.patch(`${baseURL}/students`, { 
+    axios.patch(`${BASE_URL}/students`, { 
 		  student 
 		})
-    
+
     childToParent(students)
     console.log(student) 
     console.log(students)

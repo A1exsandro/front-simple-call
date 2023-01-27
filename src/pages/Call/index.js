@@ -9,9 +9,7 @@ import {
 	CallSubmit,
 	CallResume
 } from './styles'
-
-const baseURL = 'http://localhost:3000'
-
+ 
 function Call() {
   const [data, setData] = useState([])
   const dateCall = new Date( )
@@ -22,7 +20,7 @@ function Call() {
   } 
 
 	function createCall() {
-		axios.post(`${baseURL}/calls`, { 
+		axios.post(`${BASE_URL}/calls`, { 
       date:  dateCall.toISOString(),
 		  students: data 
 		}) 

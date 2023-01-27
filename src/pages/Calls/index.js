@@ -10,14 +10,12 @@ import {
   CallName,
   CallPresent
 } from './styles'
-
-const baseURL = 'http://localhost:3000/calls'
-
+ 
 function Calls() { 
   const [calls, setCalls] = useState([])
 
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    axios.get(BASE_URL).then((response) => {
       setCalls(response.data)
     })
   },[]) 
