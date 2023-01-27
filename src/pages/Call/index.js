@@ -9,6 +9,8 @@ import {
 	CallSubmit,
 	CallResume
 } from './styles'
+
+const baseURL = process.env.REACT_APP_BASE_URL
  
 function Call() {
   const [data, setData] = useState([])
@@ -20,7 +22,7 @@ function Call() {
   } 
 
 	function createCall() {
-		axios.post(`${BASE_URL}/calls`, { 
+		axios.post(`${baseURL}/calls`, { 
       date:  dateCall.toISOString(),
 		  students: data 
 		}) 
