@@ -16,12 +16,14 @@ const baseURL = process.env.REACT_APP_BASE_URL
 function Student( {childToParent} ) { 
   const [students, setStudents] = useState([ ])
    
+  // GET ALL STUDENTS
   useEffect(() => {
     axios.get(`${baseURL}/students`).then((response) => {
       setStudents(response.data)
     })
   },[ ])
 
+  // STUDENT PRESENT
   function setPresent(student){ 
     student.present = true 
 
@@ -32,6 +34,7 @@ function Student( {childToParent} ) {
     childToParent(students) 
   }
 
+  // STUDENT ABSENT
   function setAbsent(student){ 
     student.present = false 
 
@@ -46,7 +49,7 @@ function Student( {childToParent} ) {
   return ( 
     students.map((student, index) => (
       <StudentContainer key={index}>
-        <StudentAvatar>{index + 1}</StudentAvatar>
+        <StudentAvatar>{student.id}</StudentAvatar>
         <StudentDescription>
           <StudentPresence>
             <StudentPresent onClick={() => setPresent(student)}>Presenças: {student.presences}</StudentPresent>
