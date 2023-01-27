@@ -17,8 +17,9 @@ function Calls() {
   const [calls, setCalls] = useState([])
 
   useEffect(() => {
-    axios.get(baseURL).then((response) => {
+    axios.get(`${baseURL}/calls`).then((response) => {
       setCalls(response.data)
+      console.log(response.data)
     })
   },[]) 
  
@@ -29,14 +30,14 @@ function Calls() {
         calls.map((call, index) => ( 
           <CallDaily key={index}>
             <CallDate>{ new Date(call.date).toDateString() }</CallDate>
-            {/* {
+            {
                 call.students.map((student, index) => (
                 <CallStudents key={index}> 
                   <CallName>{student.name}</CallName>
                   <CallPresent>{student.present.toString()}</CallPresent>
                 </CallStudents>
               ))
-            }  */}
+            } 
           </CallDaily>
         ))
       }   
