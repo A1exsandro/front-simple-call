@@ -29,9 +29,7 @@ function Student( {childToParent} ) {
 		  student 
 		})
 
-    childToParent(students)
-    console.log(student) 
-    console.log(students)
+    childToParent(students) 
   }
 
   function setAbsent(student){ 
@@ -41,9 +39,7 @@ function Student( {childToParent} ) {
 		  student 
 		})
 
-    childToParent(students)
-    console.log(student) 
-    console.log(students)
+    childToParent(students) 
   }
   
  

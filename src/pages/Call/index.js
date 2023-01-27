@@ -13,8 +13,7 @@ const baseURL = process.env.REACT_APP_BASE_URL
  
 function Call() {
   const [data, setData] = useState([])
-  const dateCall = new Date( )
-  console.log(dateCall)
+  const dateCall = new Date( ) 
 
   const childToParent = (childdata) => {
     setData(childdata);
