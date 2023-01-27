@@ -24,7 +24,6 @@ function Student( {childToParent} ) {
 
   function setPresent(student){ 
     student.present = true 
-    student.presences += 1  
 
     axios.patch(`${baseURL}/students`, { 
 		  student 
@@ -37,7 +36,11 @@ function Student( {childToParent} ) {
 
   function setAbsent(student){ 
     student.present = false 
-    student.absences += 1
+
+    axios.patch(`${baseURL}/students`, { 
+		  student 
+		})
+    
     childToParent(students)
     console.log(student) 
     console.log(students)

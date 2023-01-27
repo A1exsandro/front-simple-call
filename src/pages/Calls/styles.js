@@ -19,9 +19,14 @@ export const CallDate = styled.div`
 export const CallStudents = styled.div`
   display: flex;
   justify-content: space-between;
+  background-color: #4e4c57;
+  padding: 0.3rem;
+  margin: 0.3rem 0;
+  border-radius: 10px;
 `
 export const CallName = styled.div`
-
+  color: #FFF;
+  font-size: 0.8rem;
 `
 export const CallPresent = styled.div`
 
