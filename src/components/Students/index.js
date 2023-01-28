@@ -26,8 +26,7 @@ function Student( {childToParent} ) {
   // SET PRESENT TRUE OR FALSE
   const handlePresent = (student) => { 
     student.present = !student.present 
-    childToParent(students) 
-    console.log(student)  
+    childToParent(students)  
   } 
  
   return ( 
