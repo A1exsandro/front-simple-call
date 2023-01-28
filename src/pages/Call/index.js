@@ -9,34 +9,46 @@ import {
 	CallResume
 } from './styles'
 
-const baseURL = process.env.REACT_APP_BASE_URL
+const baseURL = process.env.REACT_APP_BASE_URL 
  
 function Call() {
   const [data, setData] = useState([])
   const dateCall = new Date( ) 
 
-  const childToParent = (childdata) => {
-    setData(childdata);
+  const childToParent = (childData) => {
+    setData(childData) 
   } 
 
-	function createCall() {
+  const createCall = () => {
 		axios.post(`${baseURL}/calls`, { 
       date:  dateCall.toISOString(),
 		  students: data 
 		}) 
   }
 
+  const handleCall = () => { 
+    data.map((std) => (
+      axios.patch(`${baseURL}/students`, { 
+        std
+      })
+    ))
+
+    createCall()
+  } 
+
+  console.log(data)
+
 	return (
 		<CallContainer>
 			<CallTitle>Call</CallTitle> 
       <CallTitle>{ dateCall.toDateString() }</CallTitle> 
 
-			<Student childToParent={childToParent}/> 
+			<Student childToParent={childToParent} createCall={createCall}/> 
 
 			<CallResume>
 				Total de Alunos: 45 - Total de Faltas: 5
 			</CallResume>
-			<CallSubmit onClick={createCall}>Enviar</CallSubmit> 
+			<CallSubmit onClick={handleCall}>Enviar</CallSubmit> 
 		</CallContainer>
 	)
 }
