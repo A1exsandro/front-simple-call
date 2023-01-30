@@ -9,7 +9,7 @@ import {
 	CallResume
 } from './styles'
 
-const baseURL = process.env.REACT_APP_BASE_URL 
+const baseURL = process.env.REACT_APP_BASE_URL  
  
 function Call() {
   const [data, setData] = useState([])
@@ -36,14 +36,12 @@ function Call() {
     createCall()
   } 
 
-  console.log(data)
-
 	return (
 		<CallContainer>
 			<CallTitle>Call</CallTitle> 
       <CallTitle>{ dateCall.toDateString() }</CallTitle> 
 
-			<Student childToParent={childToParent} createCall={createCall}/> 
+			<Student childToParent={childToParent}/> 
 
 			<CallResume>
 				Total de Alunos: 45 - Total de Faltas: 5

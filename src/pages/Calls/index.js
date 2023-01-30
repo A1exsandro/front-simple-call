@@ -11,15 +11,14 @@ import {
   CallPresent
 } from './styles'
 
-const baseURL = process.env.REACT_APP_BASE_URL 
+const baseURL = process.env.REACT_APP_BASE_URL  
  
 function Calls() { 
   const [calls, setCalls] = useState([])
 
   useEffect(() => {
     axios.get(`${baseURL}/calls`).then((response) => {
-      setCalls(response.data)
-      console.log(response.data)
+      setCalls(response.data) 
     })
   },[]) 
  
