@@ -17,4 +17,8 @@ export const Content = styled.div`
   padding: 1rem;
 
   box-shadow: 0 4px 8px 0 #000, 0 6px 20px 0 #fff;
+
+  a {
+    color: #fff;
+  }
 `
