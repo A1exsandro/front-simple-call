@@ -12,12 +12,9 @@ function NavBar(){
       </div>
 
       <NavLink>
-        <Link to="/">Home</Link>
-        <Link to="/call">Call</Link>
+        <Link to="/">Home</Link> 
         <Link to="/calls">Calls</Link>
-        <Link to="/students">Students</Link>
-        <Link to="/SingUp">SingUp</Link> 
-        <Link to="/Register">Register</Link>
+        <Link to="/students">Students</Link> 
       </NavLink>
     </NavContainer>
   )
