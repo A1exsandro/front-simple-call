@@ -14,7 +14,29 @@ import {
 const baseURL = process.env.REACT_APP_BASE_URL 
  
 function Student( {childToParent} ) { 
-  const [students, setStudents] = useState([]) 
+  const [students, setStudents] = useState([
+    {
+      id: 1,
+      name: 'Alexsandro',
+      present: true,
+      presences: 0,
+      absences:0
+    },
+    {
+      id: 2,
+      name: 'Adriana',
+      present: true,
+      presences: 0,
+      absences: 0
+    },
+    {
+      id: 3,
+      name: 'Kemilly',
+      present: true,
+      persences: 0,
+      absences: 0
+    }
+  ]) 
  
   // GET ALL STUDENTS
   useEffect(() => {
