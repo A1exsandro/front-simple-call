@@ -1,7 +1,7 @@
 import GlobalStyle from './global'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom" 
-import UserContext from './contexts/UserContext'
+import UserContext from './contexts/UserContext' 
 
 import { Container } from './styles'
  
@@ -16,7 +16,8 @@ import Student from './components/Students'
  
 function App() { 
   const [logAdmin, setLogAdmin] = useState(false)
-  const loginAdmin = process.env.REACT_APP_LOGIN_ADMIN
+  // const loginAdmin = process.env.REACT_APP_LOGIN_ADMIN
+  const loginAdmin = 'Alex'
 
   const sendToParent = (childData) => {
     const data = JSON.parse(childData)  
@@ -29,8 +30,8 @@ function App() {
       {  logAdmin  ?  
           <BrowserRouter>
             <NavBar /> 
-            <Routes>
-              <Route path="/" element={<Home />} /> 
+            <Routes> 
+              <Route path="/" element={<Home />} />  
               <Route path="/call" element={<Call />} />
               <Route path="/calls" element={<Calls />} /> 
               <Route path="/students" element={<Student />} />

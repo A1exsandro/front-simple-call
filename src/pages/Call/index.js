@@ -7,7 +7,7 @@ import {
 	CallTitle, 
 	CallSubmit,
 	CallResume
-} from './styles'
+} from './styles' 
 
 const baseURL = process.env.REACT_APP_BASE_URL  
  
@@ -41,8 +41,8 @@ function Call() {
 			<CallTitle>Call</CallTitle> 
       <CallTitle>{ dateCall.toDateString() }</CallTitle> 
 
-			<Student childToParent={childToParent}/> 
-
+      <Student childToParent={childToParent}/> 
+      
 			<CallResume>
 				Total de Alunos: 45 - Total de Faltas: 5
 			</CallResume>

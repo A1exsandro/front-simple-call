@@ -1,11 +1,12 @@
 import { useContext } from "react"
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom" 
 import UserContext from "../../contexts/UserContext"
 
 import { HomeContainer, Content } from './styles'
 
 function Home(){
-  const { user } = useContext(UserContext)
+  const { user, callPage} = useContext(UserContext) 
+  console.log(callPage)
 
 	return(
     <HomeContainer>
@@ -22,7 +23,7 @@ function Home(){
         <Link to="/Register">Register</Link>
       </Content>
       <Content>
-        { user }
+        {user}
       </Content>
     </HomeContainer>
 	)

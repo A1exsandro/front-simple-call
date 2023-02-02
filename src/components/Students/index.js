@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import axios from 'axios'
+import axios from 'axios' 
 import { 
   StudentContainer,
   StudentAvatar,
@@ -13,7 +13,8 @@ import {
 
 const baseURL = process.env.REACT_APP_BASE_URL 
  
-function Student( {childToParent} ) { 
+function Student( {childToParent} ) {
+  const callPage = true
   const [students, setStudents] = useState([
     {
       id: 1,
@@ -51,27 +52,26 @@ function Student( {childToParent} ) {
     childToParent(students)  
   } 
  
-  return ( 
-    <> 
-      {
-        students.map((student, index) => (
-          <StudentContainer key={index}>
-            <StudentAvatar>{student.id}</StudentAvatar>
-            <StudentDescription>
-              <StudentPresence>
-                <label >
-                  <input type="checkbox" onClick={() => handlePresent(student)}/>
-                </label>
-                <StudentPresent>Presenças: {student.presences}</StudentPresent>
-                <StudentAbsent>Faltas: {student.absences}</StudentAbsent>
-              </StudentPresence> 
-              <StudentName>{student.name}</StudentName> 
-            </StudentDescription>
-            <StudentStar>*****</StudentStar>   
-          </StudentContainer> 
-        )) 
-      }
-    </>
+  return (  
+    students.map((student, index) => (
+      <StudentContainer key={index}>
+        <StudentAvatar>{student.id}</StudentAvatar>
+        <StudentDescription>
+          <StudentPresence>
+            {
+              callPage && 
+              <label >
+                <input type="checkbox" onClick={() => handlePresent(student)}/>
+              </label> 
+            } 
+            <StudentPresent>Presenças: {student.presences}</StudentPresent>
+            <StudentAbsent>Faltas: {student.absences}</StudentAbsent>
+          </StudentPresence> 
+          <StudentName>{student.name}</StudentName> 
+        </StudentDescription>
+        <StudentStar>*****</StudentStar>   
+      </StudentContainer> 
+    ))  
   )
 }
 
