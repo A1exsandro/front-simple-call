@@ -52,22 +52,26 @@ function Student( {childToParent} ) {
   } 
  
   return ( 
-    students.map((student, index) => (
-      <StudentContainer key={index}>
-        <StudentAvatar>{student.id}</StudentAvatar>
-        <StudentDescription>
-          <StudentPresence>
-            <label >
-              <input type="checkbox" onClick={() => handlePresent(student)}/>
-            </label>
-            <StudentPresent>Presenças: {student.presences}</StudentPresent>
-            <StudentAbsent>Faltas: {student.absences}</StudentAbsent>
-          </StudentPresence> 
-          <StudentName>{student.name}</StudentName> 
-        </StudentDescription>
-        <StudentStar>*****</StudentStar>   
-      </StudentContainer> 
-    )) 
+    <> 
+      {
+        students.map((student, index) => (
+          <StudentContainer key={index}>
+            <StudentAvatar>{student.id}</StudentAvatar>
+            <StudentDescription>
+              <StudentPresence>
+                <label >
+                  <input type="checkbox" onClick={() => handlePresent(student)}/>
+                </label>
+                <StudentPresent>Presenças: {student.presences}</StudentPresent>
+                <StudentAbsent>Faltas: {student.absences}</StudentAbsent>
+              </StudentPresence> 
+              <StudentName>{student.name}</StudentName> 
+            </StudentDescription>
+            <StudentStar>*****</StudentStar>   
+          </StudentContainer> 
+        )) 
+      }
+    </>
   )
 }
 
