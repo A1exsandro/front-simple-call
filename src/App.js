@@ -1,6 +1,7 @@
 import GlobalStyle from './global'
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom" 
+import UserContext from './contexts/UserContext'
 
 import { Container } from './styles'
  
@@ -19,38 +20,38 @@ function App() {
 
   const sendToParent = (childData) => {
     const data = JSON.parse(childData)  
-   data.name === loginAdmin && setLogAdmin(true) 
+    data.name === loginAdmin && setLogAdmin(true) 
   }
   
   return (
-    
-    <Container> 
-     {  logAdmin  ?  
-        <BrowserRouter>
-          <NavBar /> 
+    <UserContext.Provider value={{ user: "trying" }}>
+      <Container> 
+      {  logAdmin  ?  
+          <BrowserRouter>
+            <NavBar /> 
+            <Routes>
+              <Route path="/" element={<Home />} /> 
+              <Route path="/call" element={<Call />} />
+              <Route path="/calls" element={<Calls />} /> 
+              <Route path="/students" element={<Student />} />
+              <Route path="/singup" element={<SingUp sendToParent={sendToParent}/>} /> 
+              <Route path="/Register" element={<Register />} />
+            </Routes>
+          </BrowserRouter> :
+
+          <BrowserRouter>
+          <NavBar />
           <Routes>
-            <Route path="/" element={<Home />} /> 
-            <Route path="/call" element={<Call />} />
+            <Route path="/" element={<Home />} />  
             <Route path="/calls" element={<Calls />} /> 
-            <Route path="/students" element={<Student />} />
+            <Route path="/students" element={<Student />} /> 
             <Route path="/singup" element={<SingUp sendToParent={sendToParent}/>} /> 
-            <Route path="/Register" element={<Register />} />
           </Routes>
-        </BrowserRouter> :
-
-        <BrowserRouter>
-        <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />  
-          <Route path="/calls" element={<Calls />} /> 
-          <Route path="/students" element={<Student />} /> 
-          <Route path="/singup" element={<SingUp sendToParent={sendToParent}/>} /> 
-        </Routes>
-        </BrowserRouter>
-      }
-      <GlobalStyle />
-    </Container>  
-
+          </BrowserRouter>
+        }
+        <GlobalStyle />
+      </Container> 
+    </UserContext.Provider> 
   ) 
 }
 

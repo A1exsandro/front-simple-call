@@ -1,8 +1,12 @@
+import { useContext } from "react"
 import { Link } from "react-router-dom"
+import UserContext from "../../contexts/UserContext"
 
 import { HomeContainer, Content } from './styles'
 
 function Home(){
+  const { user } = useContext(UserContext)
+
 	return(
     <HomeContainer>
       <Content>
@@ -16,6 +20,9 @@ function Home(){
       </Content>
       <Content>
         <Link to="/Register">Register</Link>
+      </Content>
+      <Content>
+        { user }
       </Content>
     </HomeContainer>
 	)
