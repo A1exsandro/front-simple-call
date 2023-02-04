@@ -3,18 +3,18 @@ import axios from "axios"
 export default class UserService {
   constructor() {
     this.axios = axios.create({
-      baseURL: process.env.REACT_APP_API_LOGIN
+      baseURL: process.env.REACT_APP_BASE_URL
     })
   }
 
   async login(data) {
-    // const { dataUsers } = await this.axios.post('/login', data)
-    const dataUsers = { name: 'first', email: 'first@email.com', token: '1234567'}
+    const { dataUsers } = await this.axios.get('/users', data)
+    // const dataUsers = { name: 'first', email: 'first@email.com', token: '1234567'}
   
     if(dataUsers) {
       localStorage.setItem("name", dataUsers.name)
       localStorage.setItem("email", dataUsers.email)
-      localStorage.setItem("token", dataUsers.token)
+      localStorage.setItem("password", dataUsers.password)
   
       return true
     }
@@ -23,7 +23,7 @@ export default class UserService {
   }
 
   async register(data) {
-    return this.axios.post('/user', data)
+    return this.axios.post('/users', data)
   }
 
   userAuth() {

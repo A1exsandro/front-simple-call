@@ -12,7 +12,7 @@ const userService = new UserService()
 
 const Register = () => {
 	const [loading, setLoading] = useState(false)
-	const [form, setForm] = useState([])
+	const [form, setForm] = useState([{}])
 	const navigate = useNavigate()
 
 	const handleSubmit = async (event) => {
@@ -20,8 +20,8 @@ const Register = () => {
     try {
       setLoading(true)
       const { data } = await userService.register({
-        nome: form.nome,
-        telefone: form.telefone,
+        name: form.name,
+        phone: form.phone,
         email: form.email,
         password: form.password,
       })
