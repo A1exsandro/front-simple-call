@@ -69,7 +69,7 @@ function Student( {childToParent} ) {
           </StudentPresence> 
           <StudentName>{student.name}</StudentName> 
         </StudentDescription>
-        <StudentStar>*****</StudentStar>   
+        <StudentStar>&#11088; &#11088; &#11088;</StudentStar>   
       </StudentContainer> 
     ))  
   )
