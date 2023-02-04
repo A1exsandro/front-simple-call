@@ -15,6 +15,7 @@ import NavBar from './components/NavBar'
 import Student from './components/Students'
 import Login from './pages/Login'
 import Users from './pages/Users'
+import RegisterStudent from './pages/RegisterStudent'
  
 function App() { 
   const [logAdmin, setLogAdmin] = useState(true)
@@ -39,7 +40,8 @@ function App() {
               <Route path="/calls" element={<Calls />} /> 
               <Route path="/students" element={<Student />} />
               <Route path="*" element={<Login/>} /> 
-              <Route path="/Register" element={<Register />} />
+              <Route path="/register" element={<Register />} />
+              <Route path="/register-student" element={<RegisterStudent />} />
             </Routes>
           </BrowserRouter> :
 

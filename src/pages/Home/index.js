@@ -20,7 +20,7 @@ function Home(){
         <Link to="/SingUp">SingUp</Link> 
       </Content>
       <Content>
-        <Link to="/Register">Register</Link>
+        <Link to="/register-student">Register Student</Link>
       </Content>
       <Content>
         {user}
