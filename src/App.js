@@ -14,6 +14,7 @@ import Register from './pages/Register'
 import NavBar from './components/NavBar' 
 import Student from './components/Students'
 import Login from './pages/Login'
+import Users from './pages/Users'
  
 function App() { 
   const [logAdmin, setLogAdmin] = useState(true)
@@ -32,7 +33,8 @@ function App() {
           <BrowserRouter>
             <NavBar /> 
             <Routes> 
-              <Route path="/home" element={<Home />} />  
+              <Route path="/home" element={<Home />} />
+              <Route path="/users" element={<Users />} />  
               <Route path="/call" element={<Call />} />
               <Route path="/calls" element={<Calls />} /> 
               <Route path="/students" element={<Student />} />
@@ -44,7 +46,8 @@ function App() {
           <BrowserRouter>
           <NavBar />
           <Routes>
-            <Route path="/home" element={<Home />} />  
+            <Route path="/home" element={<Home />} /> 
+            <Route path="/users" element={<Users />} /> 
             <Route path="/calls" element={<Calls />} /> 
             <Route path="/students" element={<Student />} /> 
             <Route path="/singup" element={<Login/>} /> 

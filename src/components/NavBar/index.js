@@ -15,6 +15,7 @@ function NavBar(){
         <Link to="/home">Home</Link> 
         <Link to="/calls">Calls</Link>
         <Link to="/students">Students</Link> 
+        <Link to="/users">Users</Link>
       </NavLink>
     </NavContainer>
   )
