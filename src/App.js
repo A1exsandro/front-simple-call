@@ -13,16 +13,17 @@ import Register from './pages/Register'
  
 import NavBar from './components/NavBar' 
 import Student from './components/Students'
+import Login from './pages/Login'
  
 function App() { 
-  const [logAdmin, setLogAdmin] = useState(false)
+  const [logAdmin, setLogAdmin] = useState(true)
   // const loginAdmin = process.env.REACT_APP_LOGIN_ADMIN
-  const loginAdmin = 'Alex'
+  // const loginAdmin = 'Alex'
 
-  const sendToParent = (childData) => {
-    const data = JSON.parse(childData)  
-    data.name === loginAdmin && setLogAdmin(true) 
-  }
+  // const sendToParent = (childData) => {
+  //   const data = JSON.parse(childData)  
+  //   data.name === loginAdmin && setLogAdmin(true) 
+  // }
   
   return (
     <UserContext.Provider value={{ user: "trying" }}>
@@ -31,11 +32,11 @@ function App() {
           <BrowserRouter>
             <NavBar /> 
             <Routes> 
-              <Route path="/" element={<Home />} />  
+              <Route path="/home" element={<Home />} />  
               <Route path="/call" element={<Call />} />
               <Route path="/calls" element={<Calls />} /> 
               <Route path="/students" element={<Student />} />
-              <Route path="/singup" element={<SingUp sendToParent={sendToParent}/>} /> 
+              <Route path="*" element={<Login/>} /> 
               <Route path="/Register" element={<Register />} />
             </Routes>
           </BrowserRouter> :
@@ -43,10 +44,10 @@ function App() {
           <BrowserRouter>
           <NavBar />
           <Routes>
-            <Route path="/" element={<Home />} />  
+            <Route path="/home" element={<Home />} />  
             <Route path="/calls" element={<Calls />} /> 
             <Route path="/students" element={<Student />} /> 
-            <Route path="/singup" element={<SingUp sendToParent={sendToParent}/>} /> 
+            <Route path="/singup" element={<Login/>} /> 
           </Routes>
           </BrowserRouter>
         }
