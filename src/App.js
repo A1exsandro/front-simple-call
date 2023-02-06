@@ -7,15 +7,14 @@ import { Container } from './styles'
  
 import Home from './pages/Home' 
 import Call from './pages/Call'
-import Calls from './pages/Calls'
-import SingUp from './pages/SingUp'
+import Calls from './pages/Calls' 
 import Register from './pages/Register'
  
 import NavBar from './components/NavBar' 
-import Student from './components/Students'
 import Login from './pages/Login'
 import Users from './pages/Users'
 import RegisterStudent from './pages/RegisterStudent'
+import Student from './pages/Students'
  
 function App() { 
   const [logAdmin, setLogAdmin] = useState(true)
