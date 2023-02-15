@@ -15,6 +15,7 @@ import Login from './pages/Login'
 import Users from './pages/Users'
 import RegisterStudent from './pages/RegisterStudent'
 import Student from './pages/Students'
+import FaceApi from './pages/FaceApi'
  
 function App() { 
   const [logAdmin, setLogAdmin] = useState(true)
@@ -40,6 +41,7 @@ function App() {
               <Route path="/students" element={<Student />} />
               <Route path="*" element={<Login/>} /> 
               <Route path="/register" element={<Register />} />
+              <Route path="/face-api" element={<FaceApi />} />
               <Route path="/register-student" element={<RegisterStudent />} />
             </Routes>
           </BrowserRouter> :
@@ -51,6 +53,7 @@ function App() {
             <Route path="/users" element={<Users />} /> 
             <Route path="/calls" element={<Calls />} /> 
             <Route path="/students" element={<Student />} /> 
+            <Route path="/face-api" element={<FaceApi />} />
             <Route path="/singup" element={<Login/>} /> 
           </Routes>
           </BrowserRouter>
