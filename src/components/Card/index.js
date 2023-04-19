@@ -2,7 +2,7 @@ import React, { useState } from "react"
 
 import './styles.css'
 
-const Card = ({ front, back}) => {
+const Card = ({ front, back, srcImg}) => {
 	const [flipped, setFlipped] = useState(false)
 	const [hovered, setHovered] = useState(false)
 
@@ -17,7 +17,9 @@ const Card = ({ front, back}) => {
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 		>
-			<div className="card-face card-front">{front}</div>
+			<div className="card-face card-front">
+				<img src={srcImg} alt={front} />
+			</div>
 			<div className="card-face card-back">{back}</div>
 		</div>
 	)
