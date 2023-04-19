@@ -11,7 +11,7 @@ function Home(){
 	return(
     <HomeContainer>
       <Content>
-        Never Stop Trying 
+        <Link to="/words">Never Stop Trying</Link> 
       </Content>
       <Content>
         <Link to="/call">Call</Link>

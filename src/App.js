@@ -16,6 +16,7 @@ import Users from './pages/Users'
 import RegisterStudent from './pages/RegisterStudent'
 import Student from './pages/Students'
 import FaceApi from './pages/FaceApi'
+import Words from './pages/Words'
  
 function App() { 
   const [logAdmin, setLogAdmin] = useState(true)
@@ -43,6 +44,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/face-api" element={<FaceApi />} />
               <Route path="/register-student" element={<RegisterStudent />} />
+              <Route path="/words" element={<Words />} />
             </Routes>
           </BrowserRouter> :
 
