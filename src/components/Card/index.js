@@ -18,8 +18,8 @@ const Card = ({ front, back}) => {
 			onMouseLeave={() => setHovered(false)}
 		>
 
-			<div className="card-face card-front">s</div>
-			<div className="card-face card-back">f</div>
+			<div className="card-face card-front">{front}</div>
+			<div className="card-face card-back">{back}</div>
 		</div>
 	)
 }
