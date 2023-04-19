@@ -1,5 +1,7 @@
 import React, { useState } from "react" 
 
+import './styles.css'
+
 const Card = ({ front, back}) => {
 	const [flipped, setFlipped] = useState(false)
 	const [hovered, setHovered] = useState(false)
@@ -11,13 +13,13 @@ const Card = ({ front, back}) => {
 	return (
 		<div
 			className={`card ${flipped ? "flipped" : ""}`}
-			inClick={handleClick}
+			onClick={handleClick}
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 		>
 
-			<div className="card-face card-front">{front}</div>
-			<div className="card-face card-back">{back}</div>
+			<div className="card-face card-front">s</div>
+			<div className="card-face card-back">f</div>
 		</div>
 	)
 }
