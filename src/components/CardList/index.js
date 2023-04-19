@@ -1,13 +1,14 @@
 import React from "react" 
 import Card from "../Card";
+import { CardListContainer } from "./styles";
 
 const CardList = ({ cards }) => {
   return (
-    <div className="card-list">
+    <CardListContainer>
       {cards.map((card) => (
         <Card key={card.id} front={card.front} back={card.back} />
       ))}
-    </div>
+    </CardListContainer>
   );
 };
 

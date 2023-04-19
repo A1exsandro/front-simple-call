@@ -17,7 +17,6 @@ const Card = ({ front, back}) => {
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
 		>
-
 			<div className="card-face card-front">{front}</div>
 			<div className="card-face card-back">{back}</div>
 		</div>
