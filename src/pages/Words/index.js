@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import CardList from "../../components/CardList"
 
 const Words = () => {
@@ -19,8 +19,7 @@ const Words = () => {
     { id: 2, front: "Front of card 2", back: "Box", srcImg: "https://i.pinimg.com/564x/bf/2c/03/bf2c031274b9045d8cb27490999da7a5.jpg" },
     { id: 3, front: "Front of card 3", back: "Fitgh", srcImg: "https://i.pinimg.com/564x/8a/15/29/8a1529af1a5d69d7b6092906d8b718c6.jpg" },
   ]
-
-
+ 
   return (
     <CardList cards={cards} />
   )
