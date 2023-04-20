@@ -18,4 +18,4 @@ const app = initializeApp(firebaseConfig)
 const database = getDatabase(app)
 const analytics = getAnalytics(app)
 
-export { database, auth, provider, ref, set, get, push, onValue  }
+export { database, ref, set, get, push, onValue  }
