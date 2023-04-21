@@ -1,4 +1,5 @@
 import React, { useRef, useState } from "react" 
+import { useMemory } from "../../contexts/MemoryContext"
 
 import './styles.css'
 
@@ -15,20 +16,26 @@ const Card = ({ front, back, srcImg, onClick, openCards }) => {
 
   // // Code of Game 
   const [moves, setMoves] = useState(0)
-  const [enableCards, setEnableCards] = useState(true)
-  // const [firstCard, setFirstCard] = useState(true)
+  const { contentCards, setContentCards } = useMemory()
+  
+   
 
 	const handleClick = () => { 
-    if (enableCards && moves < 1 && openCards < 2) {
+    if (moves < 1 && openCards < 2) { 
+
       setFlipped(!flipped)
-      setMoves(moves + 1)
+      setMoves(moves + 1) 
+
+      setContentCards((prev) => [...prev, 'trying'])
 
       if (flipped == false) {
         playAudio()
       } 
-    } 
+    }  
 	}
   console.log('filho', openCards)
+ 
+  console.log('cards ====>>>', contentCards)
 
 	return (
 		<div

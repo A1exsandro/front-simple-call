@@ -3,11 +3,14 @@ import Card from "../Card";
 import { CardListContainer } from "./styles";
 
 const CardList = ({ cards }) => {
-  const [openCards, setOpenCards] = useState(0)
+  const [openCards, setOpenCards] = useState(0) 
 
   const handleClick = () => {
     setOpenCards(openCards + 1)
 	}
+  // console.log('pai', back)
+  // console.log('pai', front)
+  // console.log(contentCards)
 
   return (
     <CardListContainer>
@@ -17,7 +20,7 @@ const CardList = ({ cards }) => {
           srcImg={card.srcImg} 
           front={card.front} 
           back={card.back} 
-          openCards={openCards}
+          openCards={openCards} 
           onClick={handleClick} 
         />
       ))}

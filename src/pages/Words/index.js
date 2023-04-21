@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import CardList from "../../components/CardList"
+import { MemoryContextProvider } from "../../contexts/MemoryContext"
 
 const Words = () => {
   const cards = [
@@ -21,7 +22,9 @@ const Words = () => {
   ]
  
   return (
-    <CardList cards={cards} />
+    <MemoryContextProvider>
+      <CardList cards={cards} />
+    </MemoryContextProvider>
   )
 }
 
