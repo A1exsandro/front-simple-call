@@ -1,4 +1,5 @@
 import CardList from "../../components/CardList"
+import Header from "../../components/Header"
 import { MemoryContextProvider } from "../../contexts/MemoryContext"
 
 const Words = () => {
@@ -6,6 +7,7 @@ const Words = () => {
   return (
     <MemoryContextProvider>
       <CardList />
+      <Header />
     </MemoryContextProvider>
   )
 }
