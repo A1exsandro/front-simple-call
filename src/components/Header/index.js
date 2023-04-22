@@ -2,10 +2,12 @@ import { useMemory } from "../../contexts/MemoryContext"
 import { ContainerHeader, ResultBox } from "./styles"
 
 const Header = () => {
-  const { hiddenHeader } = useMemory()
+  const { idFoundPairsCards, cards } = useMemory()
+
+  const gameFinish = cards.length === idFoundPairsCards.length * 2
   
   return (
-    <ContainerHeader hiddenHeader={hiddenHeader}>
+    <ContainerHeader hiddenHeader={!gameFinish}>
       <ResultBox>
         <div>
           <h1>Jogo da Memória</h1> 
