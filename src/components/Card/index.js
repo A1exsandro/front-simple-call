@@ -7,7 +7,7 @@ const Card = ({ id, bothId, img }) => {
   const { showCard, idFoundCards, idFoundPairsCards } = useMemory() 
 	const [hovered, setHovered] = useState(false)
   const audioRef = useRef(null)
-  const flipped = idFoundCards.includes(id) || idFoundPairsCards.includes(bothId)
+  const flipped = idFoundPairsCards.includes(bothId) || idFoundCards.includes(id)
 
   const playAudio = () => {
     if (audioRef.current) {

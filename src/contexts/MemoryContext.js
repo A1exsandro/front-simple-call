@@ -4,8 +4,7 @@ const { createContext, useContext, useState } = require("react")
 
 const MemoryContext = createContext({})
 
-export const MemoryContextProvider = (props) => {
-  // const [contentCards, setContentCards] = useState([])
+export const MemoryContextProvider = (props) => { 
   const [cards, setCards] = useState([])
   const [openCards, setOpenCards] = useState([])
   const [idFoundCards, setIdFoundCards] = useState([])
@@ -18,7 +17,7 @@ export const MemoryContextProvider = (props) => {
     setCards(pairsOfCards)
   }
 
-  const checkCards = ({ id1, id2 }) => {
+  const checkCards = ([ id1, id2 ]) => {
     const idPair1 = cards.find(({ id }) => id === id1)?.bothId
     const idPair2 = cards.find(({ id }) => id === id2)?.bothId
     return idPair1 === idPair2
@@ -31,7 +30,7 @@ export const MemoryContextProvider = (props) => {
     if (turnedCard) return
 
     if (idFoundCards.length >= 2) {
-      return setIdFoundCards([])
+      return 
     }
 
     if (idFoundCards.length == 0) {

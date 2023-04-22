@@ -16,7 +16,8 @@ const uniqueCards = cards.map((img, bothId) => ({
   img,
 }))
 
-export const pairsOfCards = [...uniqueCards, ...uniqueCards].map((card, id) => ({
+export const pairsOfCards = [...uniqueCards, ...uniqueCards].map(
+  (card, id) => ({
   ...card, 
   id
 }))

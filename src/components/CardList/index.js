@@ -10,6 +10,7 @@ const CardList = () => {
   useEffect(() => {
     startGame()
   }, [])
+  console.log(cards)
 
   return (
     <CardListContainer>
