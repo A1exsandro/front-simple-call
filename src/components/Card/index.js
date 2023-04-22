@@ -4,10 +4,10 @@ import { useMemory } from "../../contexts/MemoryContext"
 import './styles.css'
 
 const Card = ({ id, bothId, img }) => {
-  const { showCard, idFoundCards } = useMemory() 
+  const { showCard, idFoundCards, idFoundPairsCards } = useMemory() 
 	const [hovered, setHovered] = useState(false)
   const audioRef = useRef(null)
-  const flipped = idFoundCards.includes(id)
+  const flipped = idFoundCards.includes(id) || idFoundPairsCards.includes(bothId)
 
   const playAudio = () => {
     if (audioRef.current) {
@@ -22,7 +22,7 @@ const Card = ({ id, bothId, img }) => {
 	return (
 		<div
 			className={`card ${flipped ? "flipped" : ""}`}
-			onClick={handleClick} 
+			onClick={handleClick}  
       id={id}
 			onMouseEnter={() => setHovered(true)}
 			onMouseLeave={() => setHovered(false)}
