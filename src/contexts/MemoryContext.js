@@ -12,7 +12,22 @@ export const MemoryContextProvider = (props) => {
 
   const showCard = ({ id, bothId }) => {
     setNumberOfShowCards((amount) => amount + 1)
-    setIdFoundCards((ids) => [...ids, id])
+
+    if (idFoundCards.length >= 2) {
+      return setIdFoundCards([])
+    }
+
+    if (idFoundCards.length == 0) {
+      return setIdFoundCards([id])
+    }
+
+    setIdFoundCards((ids) => [ids[0], id])
+
+    const time = 2000
+
+    setTimeout(() => {
+      setIdFoundCards([])
+    }, time)
   }
 
   return (
