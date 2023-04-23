@@ -23,7 +23,7 @@ const Card = ({ id, bothId, img, sound }) => {
 	}  
 
   const flipped = idFoundPairsCards.includes(bothId) || idFoundCards.includes(id)
-  
+  console.log('lenght', idFoundCards.length)
 	return (
 		<div
 			className={`card ${flipped ? "flipped" : ""}`}
@@ -36,7 +36,7 @@ const Card = ({ id, bothId, img, sound }) => {
 				<img src={img} alt={`Carta ${id}`} />
 			</div>
       <div className="card-face card-back">
-        "back"
+         <h4>Game Of English</h4>
         <audio ref={audioRef}>
           <source src={sound} />
         </audio>

@@ -33,14 +33,11 @@ const CardList = () => {
     ...card, 
     id
   }))
-   console.log('mmmmmmmm', pairsOfCards)
-   console.log('aaasasasa', sounds)
-
+ 
   // useEffect(() => {
   //   startGame()
   // }, [])
-  console.log('here in card list === cards', cards) 
-
+ 
   return (
     <CardListContainer>
       {pairsOfCards.map((card) => (
