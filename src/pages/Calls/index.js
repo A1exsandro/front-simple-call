@@ -21,7 +21,7 @@ function Calls() {
       setCalls(response.data) 
     })
   },[]) 
- 
+
   return(
     <CallsContainer>
       <CallsTitle>Calls</CallsTitle>

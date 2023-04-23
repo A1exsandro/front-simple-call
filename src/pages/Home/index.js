@@ -1,13 +1,12 @@
-import { useContext } from "react"
-import { Link } from "react-router-dom" 
-import UserContext from "../../contexts/UserContext"
+import { useContext, useEffect, useState } from "react"
+import { Link } from "react-router-dom"  
+import UserContext from "../../contexts/UserContext" 
 
 import { HomeContainer, Content } from './styles'
 
 function Home(){
-  const { user, callPage} = useContext(UserContext) 
-  console.log(callPage)
-
+  const { user, callPage} = useContext(UserContext)   
+  
 	return(
     <HomeContainer>
       <Content>
