@@ -3,11 +3,10 @@ import { useMemory } from "../../contexts/MemoryContext"
 
 import './styles.css'
 
-const Card = ({ id, bothId, img }) => {
+const Card = ({ id, bothId, img, sound }) => {
   const { showCard, idFoundCards, idFoundPairsCards } = useMemory() 
 	const [hovered, setHovered] = useState(false)
   const audioRef = useRef(null)
-  const flipped = idFoundPairsCards.includes(bothId) || idFoundCards.includes(id)
 
   const playAudio = () => {
     if (audioRef.current) {
@@ -17,8 +16,14 @@ const Card = ({ id, bothId, img }) => {
 
 	const handleClick = () => { 
     showCard({ id, bothId })
-	} 
+    
+    if (!flipped) {
+      playAudio()
+    }
+	}  
 
+  const flipped = idFoundPairsCards.includes(bothId) || idFoundCards.includes(id)
+  
 	return (
 		<div
 			className={`card ${flipped ? "flipped" : ""}`}
@@ -33,7 +38,7 @@ const Card = ({ id, bothId, img }) => {
       <div className="card-face card-back">
         "back"
         <audio ref={audioRef}>
-          <source src="https://firebasestorage.googleapis.com/v0/b/letmeask-333417.appspot.com/o/guava.mp3?alt=media&token=9954a02d-e0cd-4010-b78d-3f91809b9391" />
+          <source src={sound} />
         </audio>
       </div>
 		</div>
