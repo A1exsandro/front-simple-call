@@ -1,10 +1,11 @@
-import { pairsOfCards } from "../Utils/cards_2"
+// import { Getdata } from "../services/Getdata"
+import { promises } from "../Utils/Cards_2"
 
-const { createContext, useContext, useState } = require("react")
+const { createContext, useContext, useState, useEffect } = require("react")
 
 const MemoryContext = createContext({})
 
-export const MemoryContextProvider = (props) => {  
+export const MemoryContextProvider = (props) => { 
   const [cards, setCards] = useState([])
   const [openCards, setOpenCards] = useState([])
   const [idFoundCards, setIdFoundCards] = useState([])
@@ -14,7 +15,8 @@ export const MemoryContextProvider = (props) => {
   const [score, setScore] = useState(0)
 
   const startGame = () => {
-    setCards(pairsOfCards)
+    // const loadCards = Getdata()
+    // setCards(loadCards)
   }
 
   const checkCards = ([ id1, id2 ]) => {
@@ -33,24 +35,25 @@ export const MemoryContextProvider = (props) => {
       return 
     }
 
-    if (idFoundCards.length == 0) {
-      return setIdFoundCards([id])
+    if (idFoundCards.length < 2) {
+      setIdFoundCards((prev) => [...prev, id])
+      return
     }
 
     const ids = [idFoundCards[0], id]
     setIdFoundCards(ids)
 
-    const someCards = checkCards(ids) 
-    if (someCards) {
-      // make score after
-      setIdFoundPairsCards((ids) => [...ids, bothId])
-    }
+    // const someCards = checkCards(ids) 
+    // if (someCards) {
+    //   // make score after
+    //   setIdFoundPairsCards((ids) => [...ids, bothId])
+    // }
 
-    const time = someCards ? 0 : 2000
+    // const time = someCards ? 0 : 2000
 
     setTimeout(() => {
       setIdFoundCards([])
-    }, time)
+    }, 2000) 
   }
 
   return (
@@ -62,7 +65,8 @@ export const MemoryContextProvider = (props) => {
       idFoundPairsCards,
       showCard,
       startGame, 
-      cards
+      cards,
+      setCards 
     }}>
       {props.children}
     </MemoryContext.Provider>
@@ -71,4 +75,4 @@ export const MemoryContextProvider = (props) => {
 
 export const useMemory = () => {
   return useContext(MemoryContext)
-}
+} 
