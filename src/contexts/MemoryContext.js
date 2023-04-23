@@ -31,17 +31,17 @@ export const MemoryContextProvider = (props) => {
     const turnedCard = idFoundCards.includes(id) || idFoundPairsCards.includes(bothId)
     if (turnedCard) return
 
-    if (idFoundCards.length >= 2) {
-      return 
-    }
+    // if (idFoundCards.length >= 2) {
+    //   return 
+    // }
 
     if (idFoundCards.length < 2) {
       setIdFoundCards((prev) => [...prev, id])
-      return
+      // return
     }
 
-    const ids = [idFoundCards[0], id]
-    setIdFoundCards(ids)
+    // const ids = [idFoundCards[0], id]
+    // setIdFoundCards(ids)
 
     // const someCards = checkCards(ids) 
     // if (someCards) {
@@ -52,7 +52,9 @@ export const MemoryContextProvider = (props) => {
     // const time = someCards ? 0 : 2000
 
     setTimeout(() => {
-      setIdFoundCards([])
+      if (idFoundCards.length == 1) {
+        setIdFoundCards([])
+      } 
     }, 2000) 
   }
 
