@@ -27,6 +27,18 @@ const CardList = () => {
   const [cards, setCards] = useState([])
   const [sounds, setSounds] = useState([])
 
+  const image = {}
+
+  for (let i = 0; i < data.length; i++) {
+    image[i] = {
+      nameImg: data[i],
+      linkImg: cards[i],
+      linkSound: sounds[i]
+    }
+  }
+
+  console.log('make obj', image)
+
   const promises = data.map((dt) => (
     getDownloadURL(ref(storage, `images/${dt}.jpeg`))
   ))
