@@ -6,6 +6,7 @@ import { CardListContainer } from "./styles";
 
 import { getStorage } from '../../services/Firebase'
 import { ref, getDownloadURL } from "firebase/storage" 
+import CardTwo from "../Card/CardTwo";
 
 const storage = getStorage() 
 
@@ -27,10 +28,12 @@ const CardList = () => {
   const [cards, setCards] = useState([])
   const [sounds, setSounds] = useState([])
 
-  const image = {}
+  const image = [{}]
 
   for (let i = 0; i < data.length; i++) {
     image[i] = {
+      id: i + 1,
+      id2: (i + 1) * -1,
       nameImg: data[i],
       linkImg: cards[i],
       linkSound: sounds[i]
@@ -55,21 +58,21 @@ const CardList = () => {
       .then((audios) => setSounds(audios))
   },[])
 
-  const uniqueCards = cards.map((img, bothId) => ({
-    bothId,
-    img,
-  }))
+  // const uniqueCards = cards.map((img, bothId) => ({
+  //   bothId,
+  //   img,
+  // }))
 
-  const uniqueSounds = sounds.map((sound, bothId) => ({
-    bothId,
-    sound,
-  }))
+  // const uniqueSounds = sounds.map((sound, bothId) => ({
+  //   bothId,
+  //   sound,
+  // }))
   
-  const pairsOfCards = [...uniqueCards, ...uniqueSounds].map(
-    (card, id) => ({
-    ...card, 
-    id
-  }))
+  // const pairsOfCards = [...uniqueCards, ...uniqueSounds].map(
+  //   (card, id) => ({
+  //   ...card, 
+  //   id
+  // }))
  
   // useEffect(() => {
   //   startGame()
@@ -77,9 +80,13 @@ const CardList = () => {
  
   return (
     <CardListContainer>
-      {pairsOfCards.map((card) => (
-        <Card key={card.id} {...card}/>
+      {image.map((card) => (
+        <Card key={card.id} {...card} /> 
       ))}
+
+      {image.map((card) => ( 
+          <CardTwo key={card.id2} {...card} />
+        ))}
     </CardListContainer>
   );
 };
