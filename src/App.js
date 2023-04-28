@@ -14,8 +14,7 @@ import NavBar from './components/NavBar'
 import Login from './pages/Login'
 import Users from './pages/Users'
 import RegisterStudent from './pages/RegisterStudent'
-import Student from './pages/Students'
-import FaceApi from './pages/FaceApi'
+import Student from './pages/Students' 
 import Words from './pages/Words' 
  
 function App() { 
@@ -41,8 +40,7 @@ function App() {
               <Route path="/calls" element={<Calls />} /> 
               <Route path="/students" element={<Student />} />
               <Route path="*" element={<Login/>} /> 
-              <Route path="/register" element={<Register />} />
-              <Route path="/face-api" element={<FaceApi />} />
+              <Route path="/register" element={<Register />} /> 
               <Route path="/register-student" element={<RegisterStudent />} />
               <Route path="/words" element={<Words />} /> 
             </Routes>
@@ -54,8 +52,7 @@ function App() {
             <Route path="/home" element={<Home />} /> 
             <Route path="/users" element={<Users />} /> 
             <Route path="/calls" element={<Calls />} /> 
-            <Route path="/students" element={<Student />} /> 
-            <Route path="/face-api" element={<FaceApi />} />
+            <Route path="/students" element={<Student />} />  
             <Route path="/singup" element={<Login/>} /> 
           </Routes>
           </BrowserRouter>

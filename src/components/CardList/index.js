@@ -41,7 +41,7 @@ const data = [
 console.log('here in cards')
 
 const CardList = () => { 
-  const { cards, startGame, setCards } = useMemory()
+  const { cards } = useMemory()
   const [images, setImages] = useState([])
   const [sounds, setSounds] = useState([])
 
@@ -76,12 +76,12 @@ const CardList = () => {
     }
   }
 
-  useEffect(() => {
-    // startGame()
-    // setCards(image)
+  // useEffect(() => {
+  //   // startGame()
+  //   // setCards(image)
     
-  }, []) 
-  
+  // }, []) 
+
   return (
     <CardListContainer>
       {cards.map((card) => (
