@@ -1,6 +1,3 @@
-// import { Getdata } from "../services/Getdata"
-import { promises } from "../Utils/Cards_2"
-
 const { createContext, useContext, useState, useEffect } = require("react")
 
 const MemoryContext = createContext({})
@@ -19,44 +16,36 @@ export const MemoryContextProvider = (props) => {
     // setCards(loadCards)
   }
 
-  const checkCards = ([ id1, id2 ]) => {
-    const idPair1 = cards.find(({ id }) => id === id1)?.bothId
-    const idPair2 = cards.find(({ id }) => id === id2)?.bothId
-    return idPair1 === idPair2
+  const ids = [idFoundCards[0], idFoundCards[1]]
+
+  const checkCards = (open1 = ids[0], open2 = ids[1]) => {
+    const nameOfId1 = cards.find(({ id, id2 }) => id === open1 || id2 === open1)?.nameImg
+    const nameOfId2 = cards.find(({ id, id2 }) => id === open2 || id2 === open2)?.nameImg
+   
+    if (nameOfId1 === nameOfId2) {
+      setIdFoundPairsCards((prev) => [...prev, nameOfId1])
+    } 
   }
 
-  const showCard = ({ id, bothId }) => {
-    setNumberOfShowCards((amount) => amount + 1)
+  const showCard = ({ id, nameImg }) => {
+    // setNumberOfShowCards((amount) => amount + 1)
 
-    const turnedCard = idFoundCards.includes(id) || idFoundPairsCards.includes(bothId)
+    const turnedCard = idFoundCards.includes(id) || idFoundPairsCards.includes(nameImg)
     if (turnedCard) return
 
-    // if (idFoundCards.length >= 2) {
-    //   return 
-    // }
-
     if (idFoundCards.length < 2) {
-      setIdFoundCards((prev) => [...prev, id])
-      // return
+      setIdFoundCards((prev) => [...prev, id]) 
     }
 
-    // const ids = [idFoundCards[0], id]
-    // setIdFoundCards(ids)
-
-    // const someCards = checkCards(ids) 
-    // if (someCards) {
-    //   // make score after
-    //   setIdFoundPairsCards((ids) => [...ids, bothId])
-    // }
-
     // const time = someCards ? 0 : 2000
-
-    setTimeout(() => {
-      if (idFoundCards.length == 1) {
-        setIdFoundCards([])
-      } 
-    }, 2000) 
   }
+
+  setTimeout(() => {
+    if (idFoundCards.length > 1) { 
+      checkCards()
+      setIdFoundCards([])
+    } 
+  }, 1000)
 
   return (
     <MemoryContext.Provider value={{ 
@@ -65,10 +54,12 @@ export const MemoryContextProvider = (props) => {
       idFoundCards,
       setIdFoundCards,
       idFoundPairsCards,
+      setIdFoundPairsCards,
       showCard,
       startGame, 
       cards,
-      setCards 
+      setCards,
+      ids 
     }}>
       {props.children}
     </MemoryContext.Provider>
