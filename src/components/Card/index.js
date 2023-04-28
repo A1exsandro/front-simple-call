@@ -3,10 +3,12 @@ import { useMemory } from "../../contexts/MemoryContext"
 
 import './styles.css'
 
-const Card = ({ id, bothId, img, sound }) => {
-  const { showCard, idFoundCards, idFoundPairsCards } = useMemory() 
+const Card = ({ id, nameImg, linkImg, linkSound }) => {
+  const { showCard, idFoundCards, idFoundPairsCards, setIdFoundPairsCards, cards } = useMemory() 
 	const [hovered, setHovered] = useState(false)
   const audioRef = useRef(null)
+
+  const ids = [idFoundCards[0], idFoundCards[1]]
 
   const playAudio = () => {
     if (audioRef.current) {
@@ -15,15 +17,18 @@ const Card = ({ id, bothId, img, sound }) => {
   } 
 
 	const handleClick = () => { 
-    showCard({ id, bothId })
+    // const someCards = checkCards(ids)
+    showCard({ id, nameImg })
     
     if (!flipped) {
       playAudio()
-    }
-	}  
+    } 
+	}    
 
-  const flipped = idFoundPairsCards.includes(bothId) || idFoundCards.includes(id)
-  console.log('lenght', idFoundCards.length)
+  // console.log(cards)
+
+  const flipped = idFoundCards.includes(id) || idFoundPairsCards.includes(nameImg)
+
 	return (
 		<div
 			className={`card ${flipped ? "flipped" : ""}`}
@@ -33,12 +38,12 @@ const Card = ({ id, bothId, img, sound }) => {
 			onMouseLeave={() => setHovered(false)}
 		>
 			<div className="card-face card-front">
-				<img src={img} alt={`Carta ${id}`} />
+				<img src={linkImg} alt={`Carta ${id}`} />
 			</div>
       <div className="card-face card-back">
-         <h4>Game Of English</h4>
+         <h2>Back</h2>
         <audio ref={audioRef}>
-          <source src={sound} />
+          <source src={cards.linkSound} />
         </audio>
       </div>
 		</div>
