@@ -5,7 +5,7 @@ import UserContext from "../../contexts/UserContext"
 import { HomeContainer, Content } from './styles'
 
 function Home(){
-  const { user, callPage} = useContext(UserContext)   
+  const { user } = useContext(UserContext)   
   
 	return(
     <HomeContainer>
