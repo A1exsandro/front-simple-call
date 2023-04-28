@@ -4,7 +4,7 @@ import { useMemory } from "../../contexts/MemoryContext"
 import './styles.css'
 
 const CardTwo = ({ id2, nameImg, linkImg, linkSound }) => {
-  const { showCard, idFoundCards, idFoundPairsCards } = useMemory() 
+  const { showCard, idFoundCards, idFoundPairsCards, cards } = useMemory() 
 	const [hovered, setHovered] = useState(false)
   const audioRef = useRef(null)
   const id = id2
@@ -16,19 +16,17 @@ const CardTwo = ({ id2, nameImg, linkImg, linkSound }) => {
   } 
 
 	const handleClick = () => { 
-    showCard({ id })
-    
-    if (!flipped) {
-      playAudio()
+    showCard({ id, nameImg })
+    playAudio()
+    if (flipped) {
+      
     }
 	}  
 
-  // console.log(id)
-    // const flipped = true
-  const flipped = idFoundCards.includes(id) 
-	// console.log('lenghttwo', idFoundCards)
-  // console.log('idFoundPairsCards', idFoundPairsCards)
+  const flipped = idFoundCards.includes(id) || idFoundPairsCards.includes(nameImg)
 
+  console.log('----------', cards)
+	
 	return (
 		<div
 			className={`card ${flipped ? "flipped" : ""}`}
@@ -42,8 +40,11 @@ const CardTwo = ({ id2, nameImg, linkImg, linkSound }) => {
 			</div>
       <div className="card-face card-back">
          <h2>Back</h2>
+      </div>
+      
+      <div>
         <audio ref={audioRef}>
-          <source src={linkSound} />
+          <source src={cards.linkSound} />
         </audio>
       </div>
 		</div>
