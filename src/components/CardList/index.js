@@ -80,10 +80,8 @@ const CardList = () => {
     // startGame()
     // setCards(image)
     
-  }, [])
-  console.log('card in cardList', cards)
-  // console.log(image)
- 
+  }, []) 
+  
   return (
     <CardListContainer>
       {cards.map((card) => (

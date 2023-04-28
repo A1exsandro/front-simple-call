@@ -11,8 +11,7 @@ export const MemoryContextProvider = (props) => {
   const [numberOfShowCards, setNumberOfShowCards] = useState(0)
   const [score, setScore] = useState(0)
 
-  const startGame = () => {
-    // const loadCards = Getdata()
+  const startGame = () => { 
     // setCards(loadCards)
   }
 

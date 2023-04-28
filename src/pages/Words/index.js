@@ -6,8 +6,8 @@ const Words = () => {
  
   return (
     <MemoryContextProvider>
-      <CardList />
       <Header />
+      <CardList />
     </MemoryContextProvider>
   )
 }
