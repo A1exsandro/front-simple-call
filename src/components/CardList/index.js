@@ -15,32 +15,39 @@ const data = [
   'avocado',
   'banana',
   'bathroom',
+  'bedroom',
   'breakfast',
+  'bridge',
+  'brothers', 
   'closed',
+  'cook',
   'dance',
   'eat',
-  'fear'
+  'fear',
+  'fire',
+  'film',
+  'fruits',
+  'kitchen',
+  'night',
+  'read',
+  'open',
+  'marketplace',
+  'play',
+  'smell',
+  'sleep',
+  'plant',
+  'tired'
 ] 
 console.log('here in cards')
 
 const CardList = () => { 
-  // const { cards, startGame, setCards } = useMemory()
-  const [cards, setCards] = useState([])
+  const { cards, startGame, setCards } = useMemory()
+  const [images, setImages] = useState([])
   const [sounds, setSounds] = useState([])
 
-  const image = [{}]
+  // const image = [{}]
 
-  for (let i = 0; i < data.length; i++) {
-    image[i] = {
-      id: i + 1,
-      id2: (i + 1) * -1,
-      nameImg: data[i],
-      linkImg: cards[i],
-      linkSound: sounds[i]
-    }
-  }
-
-  console.log('make obj', image)
+  // console.log('make obj', image)
 
   const promises = data.map((dt) => (
     getDownloadURL(ref(storage, `images/${dt}.jpeg`))
@@ -52,39 +59,38 @@ const CardList = () => {
 
   useEffect(() => {
     Promise.all(promises)
-      .then((urls) => setCards(urls))
+      .then((urls) => setImages(urls))
 
     Promise.all(audioPromises)
       .then((audios) => setSounds(audios))
+      // setCards(image)
   },[])
 
-  // const uniqueCards = cards.map((img, bothId) => ({
-  //   bothId,
-  //   img,
-  // }))
+  for (let i = 0; i < data.length; i++) {
+    cards[i] = {
+      id: i + 1,
+      id2: (i + 1) * -1,
+      nameImg: data[i],
+      linkImg: images[i],
+      linkSound: sounds[i]
+    }
+  }
 
-  // const uniqueSounds = sounds.map((sound, bothId) => ({
-  //   bothId,
-  //   sound,
-  // }))
-  
-  // const pairsOfCards = [...uniqueCards, ...uniqueSounds].map(
-  //   (card, id) => ({
-  //   ...card, 
-  //   id
-  // }))
- 
-  // useEffect(() => {
-  //   startGame()
-  // }, [])
+  useEffect(() => {
+    // startGame()
+    // setCards(image)
+    
+  }, [])
+  console.log('card in cardList', cards)
+  // console.log(image)
  
   return (
     <CardListContainer>
-      {image.map((card) => (
+      {cards.map((card) => (
         <Card key={card.id} {...card} /> 
       ))}
 
-      {image.map((card) => ( 
+      {cards.map((card) => ( 
           <CardTwo key={card.id2} {...card} />
         ))}
     </CardListContainer>
