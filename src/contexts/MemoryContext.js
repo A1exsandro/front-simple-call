@@ -3,7 +3,7 @@ const { createContext, useContext, useState, useEffect } = require("react")
 const MemoryContext = createContext({})
 
 export const MemoryContextProvider = (props) => { 
-  const [cards, setCards] = useState([{}])
+  const [cards, setCards] = useState([])
   const [openCards, setOpenCards] = useState([])
   const [idFoundCards, setIdFoundCards] = useState([])
   const [idFoundPairsCards, setIdFoundPairsCards] = useState([]) 
@@ -15,10 +15,9 @@ export const MemoryContextProvider = (props) => {
     // setCards(loadCards)
   }
 
-  const open1 = idFoundCards[0]
-  const open2 = idFoundCards[1]
+  const ids = [idFoundCards[0], idFoundCards[1]]
 
-  const checkCards = (open1, open2) => {
+  const checkCards = (open1 = ids[0], open2 = ids[1]) => {
     const nameOfId1 = cards.find(({ id, id2 }) => id === open1 || id2 === open1)?.nameImg
     const nameOfId2 = cards.find(({ id, id2 }) => id === open2 || id2 === open2)?.nameImg
    
@@ -37,12 +36,12 @@ export const MemoryContextProvider = (props) => {
       setIdFoundCards((prev) => [...prev, id]) 
     }
 
-    // 
+    // const time = someCards ? 0 : 2000
   }
 
   setTimeout(() => {
     if (idFoundCards.length > 1) { 
-      checkCards(open1, open2)
+      checkCards()
       setIdFoundCards([])
     } 
   }, 1000)
@@ -58,7 +57,8 @@ export const MemoryContextProvider = (props) => {
       showCard,
       startGame, 
       cards,
-      setCards
+      setCards,
+      ids 
     }}>
       {props.children}
     </MemoryContext.Provider>
